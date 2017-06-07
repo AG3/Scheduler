@@ -1,0 +1,17 @@
+{% extends 'app/index.html' %}
+
+{% block headBar %}
+<li>HEADBAR</li>
+{% endblock %}
+
+{% block searchBar %}
+{% csrf_token %}
+<li>SEARCHBAR</li>
+<div id="btn">button</div>
+{% endblock %}
+
+{% block resultTable %}
+	{% for x in result %}
+	<li>{{ x }}</li>
+	{% endfor %}
+{% endblock%}
