@@ -31,6 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #'admin_tools',
+    #'admin_tools.theming',
+    #'admin_tools.menu',
+    #'admin_tools.dashboard',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
+    'dadata.apps.DadataConfig'
 ]
 
 MIDDLEWARE = [
@@ -59,6 +64,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                #'django.core.context_processors.request',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -117,8 +123,24 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATIC_PATH = os.path.join(BASE_DIR,'static')
+#STATIC_PATH = os.path.join(BASE_DIR, 'static')
+'''
+ROOTDIR = os.path.realpath(os.path.dirname(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(ROOTDIR, os.path.pardir))
+MEDIA_ROOT = os.path.join(ROOTDIR,'media')
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(PROJECT_ROOT,'media/static')
+
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+
+
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+'''
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    STATIC_PATH,
 )
